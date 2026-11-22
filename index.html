@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Open B2B Packaging Engineering Specs &amp; CBM Freight Calculator</title>
+  <meta name="description" content="Open-source packaging CBM freight calculator, GS1 DataMatrix sizing reference, barrier film OTR/WVTR benchmarks, and links to free 1:1 SVG/PDF/DXF dieline generators."/>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#162920;max-width:960px;margin:0 auto;padding:32px 20px;background:#f8faf9}
+    header{background:#0f3f2c;color:#fff;padding:28px;border-radius:14px;margin-bottom:28px}
+    header h1{margin:0 0 8px;font-size:1.75rem}
+    header a{color:#f2cb78;font-weight:700}
+    .card{background:#fff;border:1px solid #d5e1da;border-radius:12px;padding:22px;margin-bottom:22px}
+    table{width:100%;border-collapse:collapse;font-size:.93rem}
+    th,td{text-align:left;padding:10px;border-bottom:1px solid #e3ebe6}
+    th{background:#f1f6f3}
+    .btn{display:inline-block;background:#0f3f2c;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;margin-right:10px;margin-top:8px}
+    input{padding:8px 10px;border:1px solid #9ab0a3;border-radius:6px;width:110px}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Open Packaging Dieline, CBM Freight &amp; Barrier Engineering Reference</h1>
+    <p>Open-source specification tools published by <a href="https://www.packagingfactorydirect.com">Packaging Factory Direct</a> (Shenzhen Color Printing Paper Packaging Co., Ltd., Est. 2016).</p>
+    <a class="btn" style="background:#d4a857;color:#102a1f" href="https://www.packagingfactorydirect.com/dieline-generator">Launch Free 9-Structure SVG/PDF/DXF Dieline Generator →</a>
+  </header>
+
+  <div class="card">
+    <h2>Interactive Rigid Box Ocean Freight CBM Calculator (Assembled vs. Collapsible)</h2>
+    <p>Enter box dimensions (mm) and order volume to compare export shipping cube:</p>
+    <p>
+      L (mm): <input id="l" type="number" value="250"/> &nbsp;
+      W (mm): <input id="w" type="number" value="200"/> &nbsp;
+      H (mm): <input id="h" type="number" value="90"/> &nbsp;
+      Qty (PCS): <input id="q" type="number" value="5000"/>
+    </p>
+    <p id="out" style="font-weight:700;color:#0f3f2c"></p>
+  </div>
+
+  <div class="card">
+    <h2>2026 Shop-Floor Packaging Benchmark &amp; Technical Guides (CC BY 4.0)</h2>
+    <table>
+      <thead><tr><th>Engineering Resource</th><th>Key Specification Scope</th><th>Link</th></tr></thead>
+      <tbody>
+        <tr><td><strong>2026 Packaging Cost &amp; Barrier Dataset</strong></td><td>MOQ 500–50k unit cost curves, CBM study, Mono-PE vs Foil OTR/WVTR</td><td><a href="https://www.packagingfactorydirect.com/press-and-industry-data.html">View Dataset</a></td></tr>
+        <tr><td><strong>Free No-Signup Vector Dieline Tool</strong></td><td>9 box, bag &amp; pouch structures in 1:1 Vector PDF, SVG &amp; CAD DXF</td><td><a href="https://www.packagingfactorydirect.com/dieline-generator">Open Generator</a></td></tr>
+        <tr><td><strong>Wholesale Rigid Box Engineering Guide</strong></td><td>800–1800gsm greyboard caliper, 90° V-grooving &amp; collapsible math</td><td><a href="https://www.packagingfactorydirect.com/blog/custom-rigid-boxes-wholesale-manufacturer-specification-pricing-guide.html">Read Guide</a></td></tr>
+        <tr><td><strong>GS1 Serialized Pharma Carton Guide</strong></td><td>DSCSA &amp; EU FMD ISO/IEC 15415 grading, coding knockouts &amp; tamper locks</td><td><a href="https://www.packagingfactorydirect.com/blog/gs1-serialized-pharmaceutical-cartons-dscsa-eu-fmd-procurement-guide.html">Read Guide</a></td></tr>
+        <tr><td><strong>High-Barrier Coffee &amp; Stand-Up Pouches</strong></td><td>AL7 vs VMPET12 vs Mono-PE OTR/WVTR data &amp; CO2 degassing valves</td><td><a href="https://www.packagingfactorydirect.com/blog/high-barrier-custom-coffee-pouches-otr-wvtr-valve-manufacturer-guide.html">Read Guide</a></td></tr>
+        <tr><td><strong>Cosmetic &amp; Skincare Carton OEM Guide</strong></td><td>350–400gsm C1S vs silver card, soft-touch + foil &amp; dropper cradles</td><td><a href="https://www.packagingfactorydirect.com/blog/custom-cosmetic-skincare-packaging-boxes-inserts-finishes-oem-guide.html">Read Guide</a></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function calc(){
+      var L=Number(document.getElementById('l').value)||250;
+      var W=Number(document.getElementById('w').value)||200;
+      var H=Number(document.getElementById('h').value)||90;
+      var Q=Number(document.getElementById('q').value)||5000;
+      var a=((L+10)*(W+10)*(H+10))/1e9*Q*1.18;
+      var c=((L+2*H+20)*(2*W+2*H+45)*14)/1e9*Q*1.18;
+      var pct=((a-c)/a*100).toFixed(1);
+      document.getElementById('out').textContent='Non-Foldable Setup CBM: '+a.toFixed(2)+' m³  |  Collapsible Flat-Pack CBM: '+c.toFixed(2)+' m³  →  Saves '+(a-c).toFixed(2)+' m³ ('+pct+'% freight volume reduction)';
+    }
+    ['l','w','h','q'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
+    calc();
+  </script>
+</body>
+</html>
