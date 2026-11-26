@@ -23,8 +23,10 @@ Need an instant **1:1 scale Vector PDF, Adobe Illustrator SVG, or CAD DXF** pack
    - **Paperboard GSM-to-Caliper (mm / pt) Estimator** across C1S Ivory, Virgin SBS, Unbleached Kraft, and High-Density Rigid Greyboard
 2. `benchmark-2026.json` — Open CC BY 4.0 dataset from **[2026 B2B Custom Packaging Cost, Freight Cube & Barrier Benchmark](https://www.packagingfactorydirect.com/press-and-industry-data.html)**.
 
-## Deep Technical Reference Guides
+## Deep Technical Reference Guides & 2026 Lab Data
 
+- [EU PPWR (Regulation 2025/40) for Custom Paper Boxes: 2026 SGS & CTI Mill Lab Reports (PFAS, Heavy Metals, 253 REACH SVHCs) & Empty-Space Guide](https://www.packagingfactorydirect.com/blog/eu-ppwr-2025-40-paper-packaging-boxes-pfas-heavy-metals-compliance-guide.html)
+- [Factory Certifications & EU Authorized Representative (EC REP Ref. EUREP-2611241122551891)](https://www.packagingfactorydirect.com/certifications.html)
 - [Custom Rigid Boxes Wholesale: Greyboard Caliper (800–1800gsm) & Collapsible Freight Math](https://www.packagingfactorydirect.com/blog/custom-rigid-boxes-wholesale-manufacturer-specification-pricing-guide.html)
 - [GS1 DataMatrix Pharmaceutical Cartons: DSCSA, EU FMD Barcode Grading & OEM RFQ Guide](https://www.packagingfactorydirect.com/blog/gs1-serialized-pharmaceutical-cartons-dscsa-eu-fmd-procurement-guide.html)
 - [Custom Coffee Bags & High-Barrier Stand-Up Pouches: OTR/WVTR Film Data & Degassing Valves](https://www.packagingfactorydirect.com/blog/high-barrier-custom-coffee-pouches-otr-wvtr-valve-manufacturer-guide.html)

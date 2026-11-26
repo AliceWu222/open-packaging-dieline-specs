@@ -3,31 +3,53 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Open B2B Packaging Engineering Specs &amp; CBM Freight Calculator</title>
-  <meta name="description" content="Open-source packaging CBM freight calculator, GS1 DataMatrix sizing reference, barrier film OTR/WVTR benchmarks, and links to free 1:1 SVG/PDF/DXF dieline generators."/>
+  <title>Open B2B Packaging Engineering Specs: CBM Freight &amp; EU PPWR Void-Space Calculator</title>
+  <meta name="description" content="Open-source packaging ocean freight CBM calculator, EU PPWR Article 24 empty-space ratio (50% cap) validator, 2026 SGS paperboard compliance benchmarks, and free 1:1 SVG/PDF/DXF dieline tools."/>
   <style>
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#162920;max-width:960px;margin:0 auto;padding:32px 20px;background:#f8faf9}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;color:#162920;max-width:980px;margin:0 auto;padding:32px 20px;background:#f8faf9}
     header{background:#0f3f2c;color:#fff;padding:28px;border-radius:14px;margin-bottom:28px}
-    header h1{margin:0 0 8px;font-size:1.75rem}
+    header h1{margin:0 0 8px;font-size:1.72rem}
     header a{color:#f2cb78;font-weight:700}
     .card{background:#fff;border:1px solid #d5e1da;border-radius:12px;padding:22px;margin-bottom:22px}
-    table{width:100%;border-collapse:collapse;font-size:.93rem}
-    th,td{text-align:left;padding:10px;border-bottom:1px solid #e3ebe6}
+    .card h2{margin-top:0;font-size:1.25rem;color:#0f3f2c}
+    table{width:100%;border-collapse:collapse;font-size:.92rem}
+    th,td{text-align:left;padding:10px;border-bottom:1px solid #e3ebe6;vertical-align:top}
     th{background:#f1f6f3}
     .btn{display:inline-block;background:#0f3f2c;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:700;margin-right:10px;margin-top:8px}
-    input{padding:8px 10px;border:1px solid #9ab0a3;border-radius:6px;width:110px}
+    input{padding:7px 9px;border:1px solid #9ab0a3;border-radius:6px;width:92px;margin-bottom:6px}
+    .pass{color:#15803d;font-weight:700}
+    .fail{color:#b91c1c;font-weight:700}
   </style>
 </head>
 <body>
   <header>
-    <h1>Open Packaging Dieline, CBM Freight &amp; Barrier Engineering Reference</h1>
-    <p>Open-source specification tools published by <a href="https://www.packagingfactorydirect.com">Packaging Factory Direct</a> (Shenzhen Color Printing Paper Packaging Co., Ltd., Est. 2016).</p>
+    <h1>Open Packaging Dieline, CBM Freight &amp; EU PPWR Engineering Reference</h1>
+    <p>Open-source structural calculators and lab benchmarks published by <a href="https://www.packagingfactorydirect.com">Packaging Factory Direct</a> (Shenzhen Color Printing Paper Packaging Co., Ltd., Est. 2016 · MOQ 500 PCS).</p>
     <a class="btn" style="background:#d4a857;color:#102a1f" href="https://www.packagingfactorydirect.com/dieline-generator">Launch Free 9-Structure SVG/PDF/DXF Dieline Generator →</a>
+    <a class="btn" style="background:#1e563f;color:#fff" href="https://www.packagingfactorydirect.com/blog/eu-ppwr-2025-40-paper-packaging-boxes-pfas-heavy-metals-compliance-guide.html">2026 EU PPWR Paperboard SGS Lab Data →</a>
   </header>
 
   <div class="card">
-    <h2>Interactive Rigid Box Ocean Freight CBM Calculator (Assembled vs. Collapsible)</h2>
-    <p>Enter box dimensions (mm) and order volume to compare export shipping cube:</p>
+    <h2>1. EU PPWR Article 24 Empty-Space Ratio Calculator (&le; 50% E-Commerce &amp; Transport Cap)</h2>
+    <p>Under <strong>Regulation (EU) 2025/40 (PPWR) Article 24</strong>, grouped, transport, and e-commerce mailer boxes must keep empty void space at or below <strong>50%</strong> (note: bubble wrap, air pillows, and shredded paper count as empty space, not product volume). Test your product cluster against internal mailer dimensions:</p>
+    <p>
+      <strong>Product Cluster (mm):</strong>
+      L <input id="pl" type="number" value="180"/> &nbsp;
+      W <input id="pw" type="number" value="120"/> &nbsp;
+      H <input id="ph" type="number" value="65"/>
+      <br/>
+      <strong>Mailer Inner Box (mm):</strong>
+      L <input id="bl" type="number" value="200"/> &nbsp;
+      W <input id="bw" type="number" value="140"/> &nbsp;
+      H <input id="bh" type="number" value="80"/>
+    </p>
+    <p id="ppwrOut" style="margin:10px 0 6px"></p>
+    <p style="font-size:.88rem;color:#475569;margin:0">Need to shrink void space below 50%? Generate a right-sized 1:1 custom mailer net in the <a href="https://www.packagingfactorydirect.com/dieline-generator/mailer-box">Free Corrugated Mailer CAD Dieline Generator</a> or review 500-PC custom mailer specs on <a href="https://www.packagingfactorydirect.com/products/custom-printed-ecommerce-mailer-boxes-tissue-paper-sticker-seal.html">Custom E-Commerce Mailer Boxes</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2>2. Interactive Rigid Box Ocean Freight CBM Calculator (Setup vs. Collapsible)</h2>
+    <p>Enter rigid box dimensions (mm) and run quantity to compare sea/air export cube (<a href="https://www.packagingfactorydirect.com/products/foldable-magnetic-boxes.html">Collapsible Magnetic Rigid Boxes</a> vs. non-foldable setup boxes):</p>
     <p>
       L (mm): <input id="l" type="number" value="250"/> &nbsp;
       W (mm): <input id="w" type="number" value="200"/> &nbsp;
@@ -38,22 +60,26 @@
   </div>
 
   <div class="card">
-    <h2>2026 Shop-Floor Packaging Benchmark &amp; Technical Guides (CC BY 4.0)</h2>
+    <h2>3. 2026 Shop-Floor Packaging Benchmarks, Lab Records &amp; OEM Reference Specs (CC BY 4.0)</h2>
     <table>
-      <thead><tr><th>Engineering Resource</th><th>Key Specification Scope</th><th>Link</th></tr></thead>
+      <thead><tr><th>Engineering &amp; Compliance Resource</th><th>Verified Technical Scope</th><th>Direct Reference</th></tr></thead>
       <tbody>
+        <tr><td><strong>EU PPWR (2025/40) Paperboard SGS &amp; CTI Lab Guide</strong></td><td>2026 mill reports (SHAEC26015504002, CANAF26005198307/327, CANEC26014388803, CTI REACH 253 SVHCs) + aqueous coating swaps</td><td><a href="https://www.packagingfactorydirect.com/blog/eu-ppwr-2025-40-paper-packaging-boxes-pfas-heavy-metals-compliance-guide.html">Read Lab Guide</a></td></tr>
+        <tr><td><strong>Factory Certifications &amp; EU EC REP Record</strong></td><td>ISO 9001:2015, ISO 45001:2018, FDA 21 CFR migration &amp; Poland EC REP (EUREP-2611241122551891)</td><td><a href="https://www.packagingfactorydirect.com/certifications.html">View Certificates</a></td></tr>
         <tr><td><strong>2026 Packaging Cost &amp; Barrier Dataset</strong></td><td>MOQ 500–50k unit cost curves, CBM study, Mono-PE vs Foil OTR/WVTR</td><td><a href="https://www.packagingfactorydirect.com/press-and-industry-data.html">View Dataset</a></td></tr>
         <tr><td><strong>Free No-Signup Vector Dieline Tool</strong></td><td>9 box, bag &amp; pouch structures in 1:1 Vector PDF, SVG &amp; CAD DXF</td><td><a href="https://www.packagingfactorydirect.com/dieline-generator">Open Generator</a></td></tr>
+        <tr><td><strong>Skincare Rigid Gift Boxes + Custom Inserts</strong></td><td>MOQ 500 sets covering 1200–1800gsm greyboard box + die-cut EVA or mono-paperboard bottle cradle</td><td><a href="https://www.packagingfactorydirect.com/products/botanical-skincare-ritual-gift-set-boxes-custom-inserts.html">View SKU Spec</a></td></tr>
+        <tr><td><strong>Chocolate Drawer Boxes + Molded Cavity Tray</strong></td><td>MOQ 500 sets complete (rigid outer drawer + food-contact PET cavity tray + boutique bag)</td><td><a href="https://www.packagingfactorydirect.com/products/luxury-chocolate-drawer-boxes-paper-bag-molded-tray.html">View SKU Spec</a></td></tr>
+        <tr><td><strong>Custom-Printed Kraft &amp; C1S Retail Paper Bags</strong></td><td>True OEM custom-printed shopping bags from 500 PCS (150–300gsm, reinforced baseboard &amp; rope/ribbon handles)</td><td><a href="https://www.packagingfactorydirect.com/products/custom-paper-bags.html">View SKU Spec</a></td></tr>
         <tr><td><strong>Wholesale Rigid Box Engineering Guide</strong></td><td>800–1800gsm greyboard caliper, 90° V-grooving &amp; collapsible math</td><td><a href="https://www.packagingfactorydirect.com/blog/custom-rigid-boxes-wholesale-manufacturer-specification-pricing-guide.html">Read Guide</a></td></tr>
         <tr><td><strong>GS1 Serialized Pharma Carton Guide</strong></td><td>DSCSA &amp; EU FMD ISO/IEC 15415 grading, coding knockouts &amp; tamper locks</td><td><a href="https://www.packagingfactorydirect.com/blog/gs1-serialized-pharmaceutical-cartons-dscsa-eu-fmd-procurement-guide.html">Read Guide</a></td></tr>
         <tr><td><strong>High-Barrier Coffee &amp; Stand-Up Pouches</strong></td><td>AL7 vs VMPET12 vs Mono-PE OTR/WVTR data &amp; CO2 degassing valves</td><td><a href="https://www.packagingfactorydirect.com/blog/high-barrier-custom-coffee-pouches-otr-wvtr-valve-manufacturer-guide.html">Read Guide</a></td></tr>
-        <tr><td><strong>Cosmetic &amp; Skincare Carton OEM Guide</strong></td><td>350–400gsm C1S vs silver card, soft-touch + foil &amp; dropper cradles</td><td><a href="https://www.packagingfactorydirect.com/blog/custom-cosmetic-skincare-packaging-boxes-inserts-finishes-oem-guide.html">Read Guide</a></td></tr>
       </tbody>
     </table>
   </div>
 
   <script>
-    function calc(){
+    function calcCbm(){
       var L=Number(document.getElementById('l').value)||250;
       var W=Number(document.getElementById('w').value)||200;
       var H=Number(document.getElementById('h').value)||90;
@@ -63,8 +89,25 @@
       var pct=((a-c)/a*100).toFixed(1);
       document.getElementById('out').textContent='Non-Foldable Setup CBM: '+a.toFixed(2)+' m³  |  Collapsible Flat-Pack CBM: '+c.toFixed(2)+' m³  →  Saves '+(a-c).toFixed(2)+' m³ ('+pct+'% freight volume reduction)';
     }
-    ['l','w','h','q'].forEach(function(id){document.getElementById(id).addEventListener('input',calc);});
-    calc();
+    function calcPpwr(){
+      var pl=Math.max(1,Number(document.getElementById('pl').value)||180);
+      var pw=Math.max(1,Number(document.getElementById('pw').value)||120);
+      var ph=Math.max(1,Number(document.getElementById('ph').value)||65);
+      var bl=Math.max(pl,Number(document.getElementById('bl').value)||200);
+      var bw=Math.max(pw,Number(document.getElementById('bw').value)||140);
+      var bh=Math.max(ph,Number(document.getElementById('bh').value)||80);
+      var pv=pl*pw*ph;
+      var bv=bl*bw*bh;
+      var voidPct=((bv-pv)/bv*100);
+      var el=document.getElementById('ppwrOut');
+      var ok=voidPct<=50;
+      el.className=ok?'pass':'fail';
+      el.textContent='Product Volume: '+(pv/1000).toFixed(0)+' cm³  |  Internal Box Volume: '+(bv/1000).toFixed(0)+' cm³  →  Empty-Space Ratio: '+voidPct.toFixed(1)+'% — '+(ok?'PASS (≤ 50% EU PPWR Art. 24 limit)':'EXCEEDS 50% CAP (Right-size internal dimensions to ≤ '+((pv/0.5)/1000).toFixed(0)+' cm³)');
+    }
+    ['l','w','h','q'].forEach(function(id){document.getElementById(id).addEventListener('input',calcCbm);});
+    ['pl','pw','ph','bl','bw','bh'].forEach(function(id){document.getElementById(id).addEventListener('input',calcPpwr);});
+    calcCbm();
+    calcPpwr();
   </script>
 </body>
 </html>
